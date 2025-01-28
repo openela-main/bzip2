@@ -3,7 +3,7 @@
 Summary: A file compression utility
 Name: bzip2
 Version: 1.0.6
-Release: 27%{?dist}
+Release: 28%{?dist}
 License: BSD
 Group: Applications/File
 URL: http://www.bzip.org/
@@ -142,6 +142,11 @@ ln -s bzgrep.1 $RPM_BUILD_ROOT%{_mandir}/man1/bzfgrep.1
 %{_libdir}/pkgconfig/bzip2.pc
 
 %changelog
+* Thu Dec 19 2024 Jakub Martisko <jamartis@redhat.com> - 1.0.6-28
+- The previous fix caused some regressions
+- Use an updated patch that deals with the original issue+the regressions
+Resolves: RHEL-71140
+
 * Tue Oct 29 2024 Jacek Migacz <jmigacz@redhat.com> - 1.0.6-27
 - Fixes out of bounds access in BZ2_decompress (RHEL-64929)
 
