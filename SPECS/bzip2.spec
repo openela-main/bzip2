@@ -3,7 +3,7 @@
 Summary: A file compression utility
 Name: bzip2
 Version: 1.0.8
-Release: 8%{?dist}
+Release: 10%{?dist}
 License: BSD
 URL: http://www.bzip.org/
 #Source0: http://www.bzip.org/%{version}/%{name}-%{version}.tar.gz
@@ -136,6 +136,14 @@ ln -s bzgrep.1 $RPM_BUILD_ROOT%{_mandir}/man1/bzfgrep.1
 %{_libdir}/pkgconfig/bzip2.pc
 
 %changelog
+* Thu Dec 19 2024 Jakub Martisko <jamartis@redhat.com> - 1.0.8-10
+- Revert the previous commit (introduced a regression)
+Resolves: CVE-2019-12900
+
+* Mon Oct 04 2024 Jakub Martisko <jamartis@redhat.com> - 1.0.8-9
+- Fix out of bounds access in BZ2_decompress
+Resolves: RHEL-65198
+
 * Mon Aug 09 2021 Mohan Boddu <mboddu@redhat.com> - 1.0.8-8
 - Rebuilt for IMA sigs, glibc 2.34, aarch64 flags
   Related: rhbz#1991688
