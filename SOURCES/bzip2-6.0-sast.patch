@@ -1,0 +1,11 @@
+--- ./bzip2recover.c.old	2024-12-03 11:00:07.024976697 +0100
++++ ./bzip2recover.c	2024-12-03 11:02:28.832219809 +0100
+@@ -402,7 +402,7 @@
+             rbEnd[rbCtr] = bEnd[currBlock];
+             rbCtr++;
+          }
+-         if (currBlock >= BZ_MAX_HANDLED_BLOCKS)
++         if (currBlock >= (BZ_MAX_HANDLED_BLOCKS-1))
+             tooManyBlocks(BZ_MAX_HANDLED_BLOCKS);
+          currBlock++;
+ 
