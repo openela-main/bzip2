@@ -3,7 +3,7 @@
 Summary: A file compression utility
 Name: bzip2
 Version: 1.0.8
-Release: 10%{?dist}
+Release: 11%{?dist}
 License: BSD
 URL: http://www.bzip.org/
 #Source0: http://www.bzip.org/%{version}/%{name}-%{version}.tar.gz
@@ -17,6 +17,7 @@ Patch3: man_gzipdiff.patch
 
 BuildRequires: gcc
 BuildRequires: make
+Requires: bzip2-libs = %{version}-%{release}
 
 %description
 Bzip2 is a freely available, patent-free, high quality data compressor.
@@ -136,6 +137,10 @@ ln -s bzgrep.1 $RPM_BUILD_ROOT%{_mandir}/man1/bzfgrep.1
 %{_libdir}/pkgconfig/bzip2.pc
 
 %changelog
+* Fri Jan 09 2026 Jakub Martisko <jamartis@redhat.com> - 1.0.8-11
+- Add the explicit Rquires to the base package
+Resolves: RHEL-138675
+
 * Thu Dec 19 2024 Jakub Martisko <jamartis@redhat.com> - 1.0.8-10
 - Revert the previous commit (introduced a regression)
 Resolves: CVE-2019-12900
